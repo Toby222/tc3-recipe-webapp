@@ -1,0 +1,3 @@
+[submodule "TinkersConstruct"]
+	path = TinkersConstruct
+	url = https://github.com/SlimeKnights/TinkersConstruct.git
