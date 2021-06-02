@@ -8,6 +8,7 @@ import Link from "next/link";
 import { RecipeComponent } from "../components/recipe";
 import Recipes from "../data/recipes.json";
 import { RecipesJSON } from "../util/types";
+import { getTranslation } from "../util/translation";
 
 type Props = WithRouterProps;
 
@@ -22,11 +23,18 @@ class RecipePage extends React.Component<Props> {
       )
     );
 
-    return (
+    return typeof modifierId !== "string" ? (
+      <>Smth went wrong :d</>
+    ) : (
       <>
         <ul>
           <Link href="/">Back</Link> |{" "}
-          <em style={{ fontWeight: "bold" }}>{modifierId}</em>
+          <span style={{ fontWeight: "bold" }}>
+            <em>
+              {getTranslation("modifier." + modifierId.replace(":", "."))}
+            </em>{" "}
+            | ({modifierId})
+          </span>
         </ul>
         {validRecipes.length > 0 ? (
           <h1>Recipes</h1>
@@ -37,7 +45,10 @@ class RecipePage extends React.Component<Props> {
           </>
         )}
         {validRecipes.map(([originPath, recipe], idx) => (
-          <RecipeComponent key={idx} origin={originPath} recipe={recipe} />
+          <>
+            <RecipeComponent key={idx} origin={originPath} recipe={recipe} />
+            <div className="horizontal-rule" />
+          </>
         ))}
       </>
     );
