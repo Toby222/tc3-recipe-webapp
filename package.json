@@ -1,0 +1,45 @@
+{
+  "name": "tc3-recipe-webapp",
+  "version": "0.0.0",
+  "description": "Web-app to automatically show modifier recipes in the current version of Tinkers' Construct 3",
+  "main": "index.js",
+  "repository": "https://github.com/Toby222/tc3-recipe-webapp",
+  "author": "Tobias Berger",
+  "license": "ISC",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "prod": "yarn build && yarn start",
+    "lint:eslint-strict": "yarn lint:eslint --max-warnings=0",
+    "lint:eslint": "eslint **/*.{ts,tsx}",
+    "lint:prettier": "prettier . --check",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "format:eslint": "yarn lint:eslint --fix",
+    "format:prettier": "prettier . --write",
+    "format": "yarn format:eslint && yarn format:prettier",
+    "fix": "yarn format",
+    "test": "tsc && yarn lint:eslint-strict && yarn lint:prettier"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.1",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.3.2",
+    "vercel": "^23.0.0"
+  },
+  "dependencies": {
+    "@octokit/core": "^3.4.0",
+    "next": "^10.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
