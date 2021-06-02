@@ -1,11 +1,11 @@
 import React from "react";
-import { GetStaticProps, GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 
 import path from "path";
 import fs from "fs/promises";
 
 import { isModifierRecipe, ModifierRecipe } from "../util/types";
-import { RecipeComponent } from "../components/recipe";
+import { RecipeLinkComponent } from "../components/recipeLink";
 
 type Props = Record<
   "abilityRecipes" | "slotlessRecipes" | "upgradeRecipes",
@@ -18,26 +18,32 @@ export default class IndexPage extends React.Component<Props, State> {
     const elements: JSX.Element[] = [];
     let i = 0;
     elements.push(<h1 key={i++}>Abilities</h1>);
-    for (const [, recipe] of Object.entries(this.props.abilityRecipes)) {
+    for (const modifierId of Object.entries(this.props.abilityRecipes)
+      .map(([, recipe]) => recipe.result.name)
+      .filter((modifierId, idx, array) => array.indexOf(modifierId) === idx)) {
       elements.push(
         <li key={i++}>
-          <RecipeComponent recipe={recipe} />
+          <RecipeLinkComponent modifierId={modifierId} />
         </li>
       );
     }
     elements.push(<h1 key={i++}>Upgrades</h1>);
-    for (const [, recipe] of Object.entries(this.props.upgradeRecipes)) {
+    for (const modifierId of Object.entries(this.props.abilityRecipes)
+      .map(([, recipe]) => recipe.result.name)
+      .filter((modifierId, idx, array) => array.indexOf(modifierId) === idx)) {
       elements.push(
         <li key={i++}>
-          <RecipeComponent recipe={recipe} />
+          <RecipeLinkComponent modifierId={modifierId} />
         </li>
       );
     }
     elements.push(<h1 key={i++}>Slotless Upgrades</h1>);
-    for (const [, recipe] of Object.entries(this.props.slotlessRecipes)) {
+    for (const modifierId of Object.entries(this.props.abilityRecipes)
+      .map(([, recipe]) => recipe.result.name)
+      .filter((modifierId, idx, array) => array.indexOf(modifierId) === idx)) {
       elements.push(
         <li key={i++}>
-          <RecipeComponent recipe={recipe} />
+          <RecipeLinkComponent modifierId={modifierId} />
         </li>
       );
     }
@@ -59,9 +65,7 @@ async function* getFolderContentsRecursive(
   }
 }
 
-export const getStaticProps: GetStaticProps = async (
-  _context: GetStaticPropsContext
-) => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const modifierBasePath =
     "./TinkersConstruct/src/generated/resources/data/tconstruct/recipes/tools/modifiers/";
   const abilityFilesGenerator = getFolderContentsRecursive(
@@ -71,13 +75,16 @@ export const getStaticProps: GetStaticProps = async (
   for await (const file of abilityFilesGenerator) {
     const fileContents = await fs.readFile(file);
     const parsedContents = JSON.parse(fileContents.toString("utf-8"));
-    if (isModifierRecipe(parsedContents)) abilityRecipes[file] = parsedContents;
-    // eslint-disable-next-line no-console
-    else console.debug("{ability} not a recipe", file);
+    if (isModifierRecipe(parsedContents)) {
+      abilityRecipes[file] = parsedContents;
+    } else if (window === undefined) {
+      // eslint-disable-next-line no-console
+      console.debug("{ability} not a recipe", file);
+    }
   }
 
   const upgradeFilesGenerator = getFolderContentsRecursive(
-    modifierBasePath + "slotless/"
+    modifierBasePath + "upgrade/"
   );
   const upgradeRecipes: Record<string, ModifierRecipe> = {};
   for await (const file of upgradeFilesGenerator) {
@@ -89,7 +96,7 @@ export const getStaticProps: GetStaticProps = async (
   }
 
   const slotlessFilesGenerator = getFolderContentsRecursive(
-    modifierBasePath + "upgrade/"
+    modifierBasePath + "slotless/"
   );
   const slotlessRecipes: Record<string, ModifierRecipe> = {};
   for await (const file of slotlessFilesGenerator) {
