@@ -7,7 +7,9 @@
   "author": "Tobias Berger",
   "license": "ISC",
   "scripts": {
+    "predev": "ts-node -P generateRecipesFile.tsconfig.json genRecipesFile.ts dev",
     "dev": "next",
+    "prebuild": "ts-node -P generateRecipesFile.tsconfig.json genRecipesFile.ts",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
@@ -33,6 +35,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "prettier": "^2.3.0",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.2",
     "vercel": "^23.0.0"
   },

@@ -1,4 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+export type RecipesJSON = Record<
+  "abilityRecipes" | "slotlessRecipes" | "upgradeRecipes",
+  Record<string, ModifierRecipe>
+>;
+
 export type MinecraftId = `minecraft:${string}`;
 export type TConstructId = `tconstruct:${string}`;
 export type ForgeId = `forge:${string}`;
@@ -182,7 +188,7 @@ export function isModifierRecipe(val: any): val is ModifierRecipe {
       return true;
     case `tconstruct:incremental_modifier`:
       if (!isItemIdentifier(val.input)) return false;
-      if (typeof val.amount_per_item !== "number") return false;  
+      if (typeof val.amount_per_item !== "number") return false;
       if (typeof val.needed_per_level !== "number") return false;
       if (val.leftover !== undefined && !isId(val.leftover)) return false;
       if (
