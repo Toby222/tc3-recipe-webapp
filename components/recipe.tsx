@@ -1,10 +1,10 @@
 import React from "react";
 import { ModifierRecipe } from "../util/types";
 
-type Props = { recipe: ModifierRecipe };
+type Props = { recipe: ModifierRecipe; origin: string };
 
 export class RecipeComponent extends React.Component<Props> {
   render() {
-    return <>{JSON.stringify(this.props.recipe)}</>;
+    return <pre>{JSON.stringify(this.props.recipe)}</pre>;
   }
 }

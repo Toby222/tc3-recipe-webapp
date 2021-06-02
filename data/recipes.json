@@ -1,5 +1,1163 @@
 {
-  "abilityRecipes": {},
-  "slotlessRecipes": {},
-  "upgradeRecipes": {}
+  "abilityRecipes": {
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\autosmelt.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:fire_charge"
+        },
+        {
+          "item": "tconstruct:ichor_congealed_slime"
+        },
+        {
+          "item": "minecraft:fire_charge"
+        },
+        {
+          "item": "tconstruct:blazewood"
+        },
+        {
+          "item": "tconstruct:blazewood"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest/primary"
+      },
+      "result": {
+        "name": "tconstruct:autosmelt",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\bucketing.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "ingredient": [
+            {
+              "item": "tconstruct:seared_faucet"
+            },
+            {
+              "item": "tconstruct:scorched_faucet"
+            }
+          ]
+        },
+        {
+          "item": "minecraft:bucket"
+        },
+        {
+          "ingredient": [
+            {
+              "item": "tconstruct:seared_faucet"
+            },
+            {
+              "item": "tconstruct:scorched_faucet"
+            }
+          ]
+        },
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:bucketing",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\exchanging.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:sticky_piston"
+        },
+        {
+          "tag": "forge:ingots/hepatizon"
+        },
+        {
+          "item": "minecraft:sticky_piston"
+        },
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest/primary"
+      },
+      "result": {
+        "name": "tconstruct:exchanging",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\expanded.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:piston"
+        },
+        {
+          "tag": "forge:ingots/silicon_bronze"
+        },
+        {
+          "item": "minecraft:piston"
+        },
+        {
+          "tag": "forge:slimeball/ichor"
+        },
+        {
+          "tag": "forge:slimeball/ichor"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/aoe"
+      },
+      "result": {
+        "name": "tconstruct:expanded",
+        "level": 1
+      },
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\gilded.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:golden_apple"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:gilded",
+        "level": 1
+      },
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\glowing.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:glowstone"
+        },
+        {
+          "item": "minecraft:daylight_detector"
+        },
+        {
+          "item": "minecraft:shroomlight"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:glowing",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\luck_level_1.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:ingots/copper"
+        },
+        {
+          "item": "minecraft:rabbit_foot"
+        },
+        {
+          "tag": "forge:ingots/copper"
+        },
+        {
+          "tag": "forge:storage_blocks/lapis"
+        },
+        {
+          "tag": "forge:storage_blocks/lapis"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:luck",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\luck_level_2.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:ingots/gold"
+        },
+        {
+          "item": "minecraft:rabbit_foot"
+        },
+        {
+          "tag": "forge:ingots/gold"
+        },
+        {
+          "tag": "forge:ender_pearls"
+        },
+        {
+          "tag": "forge:ender_pearls"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "requirements": {
+        "name": "tconstruct:luck",
+        "level": 1,
+        "error": "recipe.tconstruct.modifier.luck.level_2"
+      },
+      "result": {
+        "name": "tconstruct:luck",
+        "level": 1
+      },
+      "max_level": 2
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\luck_level_3.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:ingots/rose_gold"
+        },
+        {
+          "item": "minecraft:rabbit_foot"
+        },
+        {
+          "tag": "forge:ingots/rose_gold"
+        },
+        {
+          "tag": "forge:gems/diamond"
+        },
+        {
+          "item": "minecraft:name_tag"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "requirements": {
+        "name": "tconstruct:luck",
+        "level": 2,
+        "error": "recipe.tconstruct.modifier.luck.level_3"
+      },
+      "result": {
+        "name": "tconstruct:luck",
+        "level": 1
+      },
+      "max_level": 3
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\melting.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:blaze_rod"
+        },
+        {
+          "item": "tconstruct:seared_melter"
+        },
+        {
+          "item": "minecraft:blaze_rod"
+        },
+        {
+          "item": "minecraft:lava_bucket"
+        },
+        {
+          "item": "minecraft:lava_bucket"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:melting",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\pathing.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "tconstruct:ancient_shovel_head"
+        }
+      ],
+      "tools": {
+        "type": "mantle:without",
+        "base": {
+          "tag": "tconstruct:modifiable/harvest/primary"
+        },
+        "without": [
+          {
+            "item": "tconstruct:mattock"
+          },
+          {
+            "item": "tconstruct:excavator"
+          }
+        ]
+      },
+      "result": {
+        "name": "tconstruct:pathing",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\reach.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:piston"
+        },
+        {
+          "tag": "forge:ingots/manyullyn"
+        },
+        {
+          "item": "minecraft:piston"
+        },
+        {
+          "tag": "forge:slimeball/ender"
+        },
+        {
+          "tag": "forge:slimeball/ender"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:reach",
+        "level": 1
+      },
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\silky.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "tconstruct:silky_cloth"
+        },
+        {
+          "item": "tconstruct:silky_cloth"
+        },
+        {
+          "item": "tconstruct:silky_cloth"
+        },
+        {
+          "item": "tconstruct:silky_cloth"
+        },
+        {
+          "item": "tconstruct:silky_cloth"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest"
+      },
+      "result": {
+        "name": "tconstruct:silky",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\stripping.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "tconstruct:ancient_axe_head"
+        }
+      ],
+      "tools": {
+        "type": "mantle:without",
+        "base": {
+          "tag": "tconstruct:modifiable/harvest/primary"
+        },
+        "without": [
+          {
+            "item": "tconstruct:hand_axe"
+          },
+          {
+            "item": "tconstruct:broad_axe"
+          }
+        ]
+      },
+      "result": {
+        "name": "tconstruct:stripping",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\tilling.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "tconstruct:ancient_hoe_head"
+        }
+      ],
+      "tools": {
+        "type": "mantle:without",
+        "base": {
+          "tag": "tconstruct:modifiable/harvest/primary"
+        },
+        "without": [
+          {
+            "item": "tconstruct:kama"
+          },
+          {
+            "item": "tconstruct:scythe"
+          }
+        ]
+      },
+      "result": {
+        "name": "tconstruct:tilling",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\ability\\unbreakable.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:shulker_shell"
+        },
+        {
+          "item": "minecraft:dragon_breath"
+        },
+        {
+          "item": "minecraft:shulker_shell"
+        },
+        {
+          "tag": "forge:ingots/netherite"
+        },
+        {
+          "tag": "forge:ingots/netherite"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "requirements": {
+        "options": [
+          {
+            "name": "tconstruct:netherite",
+            "level": 1
+          },
+          {
+            "name": "tconstruct:reinforced",
+            "level": 5
+          }
+        ],
+        "matches_needed": 2,
+        "error": "recipe.tconstruct.modifier.unbreakable_requirements"
+      },
+      "result": {
+        "name": "tconstruct:unbreakable",
+        "level": 1
+      },
+      "max_level": 1,
+      "ability_slots": 1
+    }
+  },
+  "slotlessRecipes": {
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\creative_ability.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "tconstruct:creative_ability"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:creative_ability",
+        "level": 1
+      }
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\creative_upgrade.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "tconstruct:creative_upgrade"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:creative_upgrade",
+        "level": 1
+      }
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\draconic.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:dragon_head"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:draconic",
+        "level": 1
+      },
+      "max_level": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\harmonious.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "minecraft:music_discs"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:harmonious",
+        "level": 1
+      },
+      "max_level": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\recapitated.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "type": "mantle:without",
+          "base": {
+            "tag": "forge:heads"
+          },
+          "without": {
+            "item": "minecraft:dragon_head"
+          }
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:recapitated",
+        "level": 1
+      },
+      "max_level": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\resurrected.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:end_crystal"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:resurrected",
+        "level": 1
+      },
+      "max_level": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\shiny.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:enchanted_golden_apple"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:shiny",
+        "level": 1
+      },
+      "max_level": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\worldbound.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:netherite_scrap"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:worldbound",
+        "level": 1
+      },
+      "max_level": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\slotless\\writable.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:writable_book"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:writable",
+        "level": 1
+      },
+      "max_level": 1
+    }
+  },
+  "upgradeRecipes": {
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\antiaquatic.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:pufferfish"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 20,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:antiaquatic",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\bane_of_arthropods.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:fermented_spider_eye"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 15,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:bane_of_arthropods",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\blasting.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:gunpowder"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 20,
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest/stone"
+      },
+      "result": {
+        "name": "tconstruct:blasting",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\cooling.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:prismarine_crystals"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 25,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:cooling",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\diamond.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:gems/diamond"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:diamond",
+        "level": 1
+      },
+      "max_level": 1,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\emerald.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:gems/emerald"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:emerald",
+        "level": 1
+      },
+      "max_level": 1,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\experienced.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:experience_bottle",
+          "amount_needed": 5
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:experienced",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\fiery.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:blaze_powder"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 25,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:fiery",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\haste_from_block.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:storage_blocks/redstone"
+      },
+      "amount_per_item": 9,
+      "needed_per_level": 45,
+      "leftover": "minecraft:redstone",
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:haste",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\haste_from_dust.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:dusts/redstone"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 45,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:haste",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\hydraulic_from_block.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:prismarine"
+      },
+      "amount_per_item": 4,
+      "needed_per_level": 36,
+      "leftover": "minecraft:prismarine_shard",
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest"
+      },
+      "result": {
+        "name": "tconstruct:hydraulic",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\hydraulic_from_bricks.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:prismarine_bricks"
+      },
+      "amount_per_item": 9,
+      "needed_per_level": 36,
+      "leftover": "minecraft:prismarine_shard",
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest"
+      },
+      "result": {
+        "name": "tconstruct:hydraulic",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\hydraulic_from_shard.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:dusts/prismarine"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 36,
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest"
+      },
+      "result": {
+        "name": "tconstruct:hydraulic",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\knockback.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:piston"
+        },
+        {
+          "tag": "tconstruct:slime_block"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:knockback",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\lightspeed_from_block.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:glowstone"
+      },
+      "amount_per_item": 4,
+      "needed_per_level": 64,
+      "leftover": "minecraft:glowstone_dust",
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest"
+      },
+      "result": {
+        "name": "tconstruct:lightspeed",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\lightspeed_from_dust.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:dusts/glowstone"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 64,
+      "tools": {
+        "tag": "tconstruct:modifiable/harvest"
+      },
+      "result": {
+        "name": "tconstruct:lightspeed",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\magnetic.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:compass"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:magnetic",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\necrotic.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:wither_rose"
+        },
+        {
+          "item": "tconstruct:blood_congealed_slime"
+        },
+        {
+          "item": "minecraft:ghast_tear"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:necrotic",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\netherite.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:ingots/netherite"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "requirements": {
+        "options": [
+          {
+            "name": "tconstruct:diamond",
+            "level": 1
+          },
+          {
+            "name": "tconstruct:emerald",
+            "level": 1
+          }
+        ],
+        "matches_needed": 1,
+        "error": "recipe.tconstruct.modifier.netherite_requirements"
+      },
+      "result": {
+        "name": "tconstruct:netherite",
+        "level": 1
+      },
+      "max_level": 1,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\overforced.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "tconstruct:slimesteel_reinforcement"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 24,
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:overforced",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\piercing.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:cactus"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 25,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:piercing",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\reinforced.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "tconstruct:iron_reinforcement"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 24,
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:reinforced",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\severing.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "forge:wither_bones"
+        },
+        {
+          "tag": "forge:ingots/copper"
+        },
+        {
+          "tag": "forge:wither_bones"
+        },
+        {
+          "item": "minecraft:tnt"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:severing",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\sharpness_from_block.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:storage_blocks/quartz"
+      },
+      "amount_per_item": 4,
+      "needed_per_level": 36,
+      "leftover": "minecraft:quartz",
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:sharpness",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\sharpness_from_shard.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "tag": "forge:gems/quartz"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 36,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:sharpness",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\smite.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:glistering_melon_slice"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 5,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee"
+      },
+      "result": {
+        "name": "tconstruct:smite",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\soulbound.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "item": "minecraft:totem_of_undying"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable"
+      },
+      "result": {
+        "name": "tconstruct:soulbound",
+        "level": 1
+      },
+      "max_level": 1,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\sweeping_edge.json": {
+      "type": "tconstruct:incremental_modifier",
+      "input": {
+        "item": "minecraft:chain"
+      },
+      "amount_per_item": 1,
+      "needed_per_level": 18,
+      "tools": {
+        "tag": "tconstruct:modifiable/melee/sword"
+      },
+      "result": {
+        "name": "tconstruct:sweeping_edge",
+        "level": 1
+      },
+      "max_level": 4,
+      "upgrade_slots": 1
+    },
+    "C:\\Users\\Berger.ASGARD\\Documents\\Git\\tc3-recipe-webapp\\TinkersConstruct\\src\\generated\\resources\\data\\tconstruct\\recipes\\tools\\modifiers\\upgrade\\tank.json": {
+      "type": "tconstruct:modifier",
+      "inputs": [
+        {
+          "tag": "tconstruct:tanks"
+        }
+      ],
+      "tools": {
+        "tag": "tconstruct:modifiable/melee_or_harvest"
+      },
+      "result": {
+        "name": "tconstruct:tank",
+        "level": 1
+      },
+      "max_level": 5,
+      "upgrade_slots": 1
+    }
+  }
 }
