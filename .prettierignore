@@ -1,2 +1,6 @@
 tsconfig.json
 generateRecipesFile.tsconfig.json
+
+.next/
+TinkersConstruct/
+data/recipes.json

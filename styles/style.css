@@ -47,3 +47,35 @@ ul {
   border-style: inset;
   border-width: 1px;
 }
+
+.json {
+  font-size: 20px;
+}
+
+.json > .jsonString {
+  color: green;
+}
+
+.json > .jsonNumber {
+  color: blue;
+}
+
+.json > .jsonBoolean {
+  color: firebrick;
+}
+
+.json > .jsonNull {
+  color: gray;
+}
+
+.json > .jsonKey {
+  color: hsl(33, 100%, 35%);
+}
+
+.json > .jsonText {
+  color: purple;
+}
+
+.json > .jsonWhitespace {
+  color: white;
+}

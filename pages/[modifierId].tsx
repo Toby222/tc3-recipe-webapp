@@ -5,7 +5,8 @@ import { WithRouterProps } from "next/dist/client/with-router";
 
 import Link from "next/link";
 
-import { ModifierComponent } from "../components/modifier";
+import { JSONComponent } from "../components/json";
+
 import Recipes from "../data/recipes.json";
 import { RecipesJSON } from "../util/types";
 import { getTranslation } from "../util/translation";
@@ -80,10 +81,10 @@ class ModifierPage extends React.Component<Props> {
             <h6>... Are you sure this is a modifier?</h6>
           </>
         )}
-        {validRecipes.map(([originPath, recipe], idx) => (
+        {validRecipes.map(([, recipe], idx) => (
           <>
             <div className="horizontal-rule" />
-            <ModifierComponent key={idx} origin={originPath} recipe={recipe} />
+            <JSONComponent key={idx} json={recipe} />
           </>
         ))}
         <div className="horizontal-rule" />
