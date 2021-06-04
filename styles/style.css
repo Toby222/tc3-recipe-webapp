@@ -84,13 +84,13 @@ pre {
   font-weight: bold;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .indexSection + .indexSection {
     border-left: solid 1px var(--foreground-color);
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 699px) {
   #indexDiv {
     flex-direction: column;
   }

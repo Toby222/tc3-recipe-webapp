@@ -9,7 +9,8 @@ export class HeaderBarComponent extends React.Component<Props> {
   render() {
     return (
       <ul id="headerBar">
-        <Link href="/">Back</Link>{this.props.children}
+        <Link href="/">Back</Link>
+        {this.props.children}
         <ToggleDarkModeButtonComponent />
       </ul>
     );

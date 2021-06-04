@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export type RecipesJSON = Record<
-  "abilityRecipes" | "slotlessRecipes" | "upgradeRecipes",
-  Record<string, ModifierRecipe>
->;
+export type RecipesJSON = {
+  abilityRecipes: Record<string, NormalModifierRecipe>;
+  slotlessRecipes: Record<string, AnyModifierRecipe>;
+  upgradeRecipes: Record<string, NormalModifierRecipe>;
+};
 
 export type MinecraftId = `minecraft:${string}`;
 export type TConstructId = `tconstruct:${string}`;
@@ -12,6 +13,14 @@ export type ForgeId = `forge:${string}`;
 export type Id = MinecraftId | ForgeId | MinecraftId;
 
 export type ItemIdentifier = { item: Id } | { tag: Id };
+export function getItemIdentifierId(identifier: ItemIdentifier) {
+  if (identifier.hasOwnProperty("item")) {
+    return (identifier as { item: Id }).item;
+  } else {
+    return (identifier as { tag: Id }).tag;
+  }
+}
+
 export type MultiItemIdentifier = {
   ingredient: ItemIdentifier[];
 };
@@ -40,34 +49,43 @@ export type ToolRequirements =
       error: string;
     };
 
-export type ModifierRecipe =
-  | {
-      type: `tconstruct:modifier`;
-      inputs: (ItemSpecifier | MultiItemIdentifier)[];
-      tools: ItemSpecifier;
-      requirements?: ToolRequirements;
-      result: {
-        name: TConstructId;
-        level: number;
-      };
-      max_level?: number;
-      ability_slots?: number;
-      upgrade_slots?: number;
-    }
-  | {
-      type: `tconstruct:incremental_modifier`;
-      input: ItemIdentifier;
-      amount_per_item: number;
-      needed_per_level: number;
-      leftover?: Id;
-      tools: ItemIdentifier;
-      result: {
-        name: TConstructId;
-        level: number;
-      };
-      max_level: number;
-      upgrade_slots: number;
-    };
+export type ModifierRecipe = {
+  type: `tconstruct:modifier`;
+  inputs: (ItemSpecifier | MultiItemIdentifier)[];
+  tools: ItemSpecifier;
+  requirements?: ToolRequirements;
+  result: {
+    name: TConstructId;
+    level: number;
+  };
+  max_level?: number;
+  ability_slots?: number;
+  upgrade_slots?: number;
+};
+
+export type IncrementalModifierRecipe = {
+  type: `tconstruct:incremental_modifier`;
+  input: ItemIdentifier;
+  amount_per_item: number;
+  needed_per_level: number;
+  leftover?: Id;
+  tools: ItemIdentifier;
+  result: {
+    name: TConstructId;
+    level: number;
+  };
+  max_level: number;
+  upgrade_slots: number;
+};
+
+export type OverslimeModifierRecipe = {
+  type: `tconstruct:overslime_modifier`;
+  ingredient: ItemIdentifier;
+  restore_amount: number;
+};
+
+export type NormalModifierRecipe = ModifierRecipe | IncrementalModifierRecipe;
+export type AnyModifierRecipe = NormalModifierRecipe | OverslimeModifierRecipe;
 
 export function isMultiItemIdentifier(val: any): val is MultiItemIdentifier {
   const result =
@@ -139,75 +157,82 @@ export function isId(val: any): val is Id {
   return isMinecraftId(val) || isTConstructId(val) || isForgeId(val);
 }
 
+export function isOverslimeModifierRecipe(
+  val: any
+): val is OverslimeModifierRecipe {
+  if (typeof val !== "object") return false;
+  if (val.type !== `tconstruct:overslime_modifier`) return false;
+  if (typeof val.restore_amount !== "number") return false;
+  if (!isItemIdentifier(val.ingredient)) return false;
+  return true;
+}
+
+export function isIncrementalModifierRecipe(
+  val: any
+): val is IncrementalModifierRecipe {
+  if (typeof val !== "object") return false;
+  if (typeof val.amount_per_item !== "number") return false;
+  if (typeof val.needed_per_level !== "number") return false;
+  if (val.leftover !== undefined && !isId(val.leftover)) return false;
+  if (!isItemIdentifier(val.input)) return false;
+  if (
+    typeof val.result !== "object" ||
+    val.result === null ||
+    typeof val.result.level !== "number" ||
+    !isTConstructId(val.result.name)
+  )
+    return false;
+  if (val.max_level !== undefined && typeof val.max_level !== "number")
+    return false;
+
+  if (val.upgrade_slots !== undefined && typeof val.upgrade_slots !== "number")
+    return false;
+  return true;
+}
+
 export function isModifierRecipe(val: any): val is ModifierRecipe {
+  if (typeof val !== "object") return false;
+  if (
+    !isItemSpecifier(val.inputs) &&
+    !isMultiItemIdentifier(val.inputs) &&
+    !(
+      Array.isArray(val.inputs) &&
+      val.inputs.every(
+        (element: any) =>
+          isItemIdentifier(element) ||
+          isMultiItemIdentifier(element) ||
+          isItemSpecifier(element)
+      )
+    )
+  ) {
+    return false;
+  }
+  if (!isItemSpecifier(val.tools)) return false;
+  if (val.requirements !== undefined && !isToolRequirements(val.requirements))
+    return false;
+  if (
+    typeof val.result !== "object" ||
+    val.result === null ||
+    typeof val.result.level !== "number" ||
+    !isTConstructId(val.result.name)
+  )
+    return false;
+  if (val.max_level !== undefined && typeof val.max_level !== "number")
+    return false;
+  if (val.ability_slots !== undefined && typeof val.ability_slots !== "number")
+    return false;
+  if (val.upgrade_slots !== undefined && typeof val.upgrade_slots !== "number")
+    return false;
+  return true;
+}
+
+export function isAnyModifierRecipe(val: any): val is AnyModifierRecipe {
   if (typeof val !== "object" || val === null) return false;
   if (!val.hasOwnProperty("type")) return false;
 
-  switch (val.type) {
-    case `tconstruct:modifier`:
-      if (
-        !isItemSpecifier(val.inputs) &&
-        !isMultiItemIdentifier(val.inputs) &&
-        !(
-          Array.isArray(val.inputs) &&
-          val.inputs.every(
-            (element: any) =>
-              isItemIdentifier(element) ||
-              isMultiItemIdentifier(element) ||
-              isItemSpecifier(element)
-          )
-        )
-      ) {
-        return false;
-      }
-      if (!isItemSpecifier(val.tools)) return false;
-      if (
-        val.requirements !== undefined &&
-        !isToolRequirements(val.requirements)
-      )
-        return false;
-      if (
-        typeof val.result !== "object" ||
-        val.result === null ||
-        typeof val.result.level !== "number" ||
-        !isTConstructId(val.result.name)
-      )
-        return false;
-      if (val.max_level !== undefined && typeof val.max_level !== "number")
-        return false;
-      if (
-        val.ability_slots !== undefined &&
-        typeof val.ability_slots !== "number"
-      )
-        return false;
-      if (
-        val.upgrade_slots !== undefined &&
-        typeof val.upgrade_slots !== "number"
-      )
-        return false;
-      return true;
-    case `tconstruct:incremental_modifier`:
-      if (!isItemIdentifier(val.input)) return false;
-      if (typeof val.amount_per_item !== "number") return false;
-      if (typeof val.needed_per_level !== "number") return false;
-      if (val.leftover !== undefined && !isId(val.leftover)) return false;
-      if (
-        typeof val.result !== "object" ||
-        val.result === null ||
-        typeof val.result.level !== "number" ||
-        !isTConstructId(val.result.name)
-      )
-        return false;
-      if (val.max_level !== undefined && typeof val.max_level !== "number")
-        return false;
+  return isNormalModifierRecipe(val) || isOverslimeModifierRecipe(val);
+}
 
-      if (
-        val.upgrade_slots !== undefined &&
-        typeof val.upgrade_slots !== "number"
-      )
-        return false;
-      return true;
-    default:
-      return false;
-  }
+export function isNormalModifierRecipe(val: any): val is NormalModifierRecipe {
+  return isModifierRecipe(val) || isIncrementalModifierRecipe(val);
 }

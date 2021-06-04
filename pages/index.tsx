@@ -3,7 +3,7 @@ import React from "react";
 import Head from "next/head";
 
 import Recipes from "../data/recipes.json";
-import { RecipesJSON } from "../util/types";
+import { NormalModifierRecipe, RecipesJSON } from "../util/types";
 
 import { ModifierLinkComponent } from "../components/modifierLink";
 import { ToggleDarkModeButtonComponent } from "../components/toggleDarkModeButton";
@@ -12,7 +12,7 @@ import { IndexLinkComponent } from "../components/indexLink";
 
 export default class IndexPage extends React.Component {
   render(): JSX.Element {
-    const recipes = Recipes as RecipesJSON;
+    const allRecipes = Recipes as RecipesJSON;
 
     return (
       <>
@@ -28,7 +28,7 @@ export default class IndexPage extends React.Component {
           </IndexSectionComponent>
           <IndexSectionComponent id="abilitiesDiv" title="Abilities">
             <ul>
-              {Object.entries(recipes.abilityRecipes)
+              {Object.entries(allRecipes.abilityRecipes)
                 .map(([, recipe]) => recipe.result.name)
                 .filter(
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
@@ -42,7 +42,7 @@ export default class IndexPage extends React.Component {
           </IndexSectionComponent>
           <IndexSectionComponent id="upgradesDiv" title="Upgrades">
             <ul>
-              {Object.entries(recipes.upgradeRecipes)
+              {Object.entries(allRecipes.upgradeRecipes)
                 .map(([, recipe]) => recipe.result.name)
                 .filter(
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
@@ -56,8 +56,14 @@ export default class IndexPage extends React.Component {
           </IndexSectionComponent>
           <IndexSectionComponent id="slotlessDiv" title="Slotless Upgrades">
             <ul>
-              {Object.entries(recipes.slotlessRecipes)
-                .map(([, recipe]) => recipe.result.name)
+              {Object.entries(allRecipes.slotlessRecipes)
+                .filter(
+                  ([, recipe]) =>
+                    recipe.type !== `tconstruct:overslime_modifier`
+                )
+                .map(
+                  ([, recipe]) => (recipe as NormalModifierRecipe).result.name
+                )
                 .filter(
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )
@@ -66,6 +72,11 @@ export default class IndexPage extends React.Component {
                     <ModifierLinkComponent modifierId={modifierId} />
                   </li>
                 ))}
+              <br />
+              <div className="horizontal-rule" />
+              <IndexLinkComponent link={"/modifier/overslime/"}>
+                <h4>Overslime refilling recipes</h4>
+              </IndexLinkComponent>
             </ul>
           </IndexSectionComponent>
         </div>

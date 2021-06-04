@@ -23,7 +23,7 @@ export default class ModifierIndexPage extends React.Component<Props> {
           | <span className="bold">All Modifiers</span>
         </HeaderBarComponent>
         <ul>
-          {getAllModifiers()
+          {getAllModifiers(false)
             .sort()
             .map((modifierId) => (
               <React.Fragment key={modifierId}>
