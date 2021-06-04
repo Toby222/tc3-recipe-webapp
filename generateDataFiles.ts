@@ -71,7 +71,12 @@ export async function generateRecipesFile(dev = false) {
     "./data/recipes.json",
     JSON.stringify(recipes, null, dev ? 2 : 0)
   );
-  console.log("generated recipes file");
+  console.log(
+    "generated recipes file; " +
+      [abilityRecipes, slotlessRecipes, upgradeRecipes].flatMap((recipes) =>
+        Object.values(recipes)
+      ).length
+  );
 }
 
 export async function generateLangsFile(dev = false) {
@@ -99,11 +104,11 @@ export async function generateLangsFile(dev = false) {
     "./data/lang.json",
     JSON.stringify(lang, null, dev ? 2 : 0)
   );
-  console.log("generated lang file");
+  console.log("generated lang file; " + Object.keys(lang).length);
 }
 
 export async function generateMetaFile(dev = false) {
-  console.log("genrating meta files");
+  console.log("generating meta files");
   const gradleProperties = (
     await fs.readFile("./TinkersConstruct/gradle.properties")
   ).toString("utf-8");
@@ -125,7 +130,12 @@ export async function generateMetaFile(dev = false) {
     ),
     fs.writeFile("./data/meta.json", JSON.stringify(meta, null, dev ? 2 : 0)),
   ]);
-  console.log("generated meta files");
+  console.log(
+    "generated meta files; " +
+      Object.keys(oEmbed).length +
+      " ; " +
+      Object.keys(meta).length
+  );
 }
 
 async function main() {
