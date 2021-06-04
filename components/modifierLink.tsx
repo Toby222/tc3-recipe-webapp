@@ -11,7 +11,7 @@ export class ModifierLinkComponent extends React.Component<Props> {
       "modifier." + this.props.modifierId.replace(":", ".")
     );
     return (
-      <IndexLinkComponent link={"/" + this.props.modifierId}>
+      <IndexLinkComponent link={"/modifier/" + this.props.modifierId}>
         {modifierName}
       </IndexLinkComponent>
     );
