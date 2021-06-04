@@ -9,7 +9,6 @@ import Head from "next/head";
 export default class IndexPage extends React.Component {
   render(): JSX.Element {
     const recipes = Recipes as RecipesJSON;
-    let i = 0;
 
     return (
       <>
@@ -26,7 +25,7 @@ export default class IndexPage extends React.Component {
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )
                 .map((modifierId) => (
-                  <li key={i++}>
+                  <li key={"recipe-ability-" + modifierId}>
                     <ModifierLinkComponent modifierId={modifierId} />
                   </li>
                 ))}
@@ -41,7 +40,7 @@ export default class IndexPage extends React.Component {
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )
                 .map((modifierId) => (
-                  <li key={i++}>
+                  <li key={"recipe-upgrade-" + modifierId}>
                     <ModifierLinkComponent modifierId={modifierId} />
                   </li>
                 ))}
@@ -56,7 +55,7 @@ export default class IndexPage extends React.Component {
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )
                 .map((modifierId) => (
-                  <li key={i++}>
+                  <li key={"recipe-slotless-" + modifierId}>
                     <ModifierLinkComponent modifierId={modifierId} />
                   </li>
                 ))}

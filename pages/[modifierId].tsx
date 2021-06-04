@@ -49,19 +49,12 @@ class ModifierPage extends React.Component<Props> {
           </title>
         </Head>
         <ul id="headerBar">
-          <Link key="backlink" href="/">
-            Back
-          </Link>{" "}
-          |{" "}
-          <span key="modifierid" style={{ fontWeight: "bold" }}>
-            ({modifierId})
-          </span>{" "}
-          |{" "}
+          <Link href="/">Back</Link> |{" "}
+          <span style={{ fontWeight: "bold" }}>({modifierId})</span> |{" "}
           <input
             id="translationInput"
             ref={this.translationInput}
             type="text"
-            key="translationinput"
             onInput={() => {
               const label = this.translationInput.current?.labels?.item(0);
               if (!label) return;
@@ -70,7 +63,7 @@ class ModifierPage extends React.Component<Props> {
               );
             }}
           />{" "}
-          <label key="translationoutput" htmlFor="translationInput">
+          <label htmlFor="translationInput">
             Enter untranslated Tinkers&apos; Construct string here
           </label>
         </ul>
@@ -104,10 +97,10 @@ class ModifierPage extends React.Component<Props> {
           </>
         )}
         {validRecipes.map(([, recipe], idx) => (
-          <>
-            <div key={idx + "hr"} className="horizontal-rule" />
-            <JSONComponent key={idx + "json"} json={recipe} />
-          </>
+          <React.Fragment key={modifierId + "-recipe-" + idx}>
+            <div className="horizontal-rule" />
+            <JSONComponent json={recipe} />
+          </React.Fragment>
         ))}
         <div className="horizontal-rule" />
       </>

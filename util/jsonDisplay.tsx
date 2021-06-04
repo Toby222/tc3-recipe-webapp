@@ -25,12 +25,22 @@ export function syntaxHighlight(json: string | Record<string, unknown>) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+
+  const keys = {
+    jsonBoolean: 0,
+    jsonKey: 0,
+    jsonNull: 0,
+    jsonNumber: 0,
+    jsonString: 0,
+    jsonText: 0,
+    jsonWhitespace: 0,
+  };
   return json
     .match(
       /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?|([^\s]+)|([\s]+))/g
     )
-    ?.map((match, idx) => {
-      let cls: string;
+    ?.map((match) => {
+      let cls: keyof typeof keys;
       if (/^"/.test(match)) {
         if (/:$/.test(match)) {
           cls = "jsonKey";
@@ -49,7 +59,7 @@ export function syntaxHighlight(json: string | Record<string, unknown>) {
         cls = "jsonText";
       }
       return (
-        <span className={cls} key={idx}>
+        <span className={cls} key={cls + "-" + keys[cls]++}>
           {match}
         </span>
       );
