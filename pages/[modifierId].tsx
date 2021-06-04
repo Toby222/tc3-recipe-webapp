@@ -51,7 +51,7 @@ class ModifierPage extends React.Component<Props> {
         </Head>
         <ul id="headerBar">
           <Link href="/">Back</Link> |{" "}
-          <span style={{ fontWeight: "bold" }}>({modifierId})</span> |{" "}
+          <span style={{ fontWeight: "bold" }}>({modifierId})</span> <br />
           <input
             id="translationInput"
             ref={this.translationInput}
@@ -59,13 +59,14 @@ class ModifierPage extends React.Component<Props> {
             onInput={() => {
               const label = this.translationInput.current?.labels?.item(0);
               if (!label) return;
-              label.textContent = getTranslation(
-                this.translationInput.current?.value ?? ""
-              );
+              (label.firstChild as HTMLPreElement).textContent =
+                getTranslation(this.translationInput.current?.value ?? "") ||
+                "Enter untranslated Tinkers' Construct string here";
             }}
-          />{" "}
+          />
+          <br />
           <label htmlFor="translationInput">
-            Enter untranslated Tinkers&apos; Construct string here
+            <pre>Enter untranslated Tinkers&apos; Construct string here</pre>
           </label>
           <ToggleDarkModeButtonComponent />
         </ul>

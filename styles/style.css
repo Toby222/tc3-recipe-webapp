@@ -30,6 +30,10 @@ ul {
 }
 
 #toggleDarkModeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 16px;
   float: right;
 }
 
@@ -41,16 +45,14 @@ ul {
   justify-content: space-around;
 }
 
+#headerBar {
+  width: 100%;
+}
+
 .modifierDiv {
   flex: 1 1 auto;
   text-align: center;
   margin: 5px;
-}
-
-@media (min-width: 550px) {
-  .modifierDiv + .modifierDiv {
-    border-left: solid 1px var(--foreground-color);
-  }
 }
 
 .horizontal-rule {
@@ -61,6 +63,25 @@ ul {
 .json {
   font-size: 20px;
   filter: brightness(150%);
+}
+
+pre {
+  overflow-x: auto;
+}
+
+@media screen and (min-width: 550px) {
+  .modifierDiv + .modifierDiv {
+    border-left: solid 1px var(--foreground-color);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #indexDiv {
+    flex-direction: column;
+  }
+  .json {
+    font-size: 15px;
+  }
 }
 
 .json > .jsonString {
