@@ -18,6 +18,13 @@ export default class IndexPage extends React.Component {
       <>
         <Head>
           <title key="title">Index - Tinkers&apos; Construct Modifiers</title>
+          <meta charSet="utf-8" />
+          <meta
+            property="og:title"
+            itemProp="name"
+            content="Tinkers' Construct 3 Recipes"
+          />
+          {/* TODO: Fill in more meta tags */}
         </Head>
         <ToggleDarkModeButtonComponent />
         <div id="indexDiv">
