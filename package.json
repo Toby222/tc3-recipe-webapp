@@ -7,9 +7,9 @@
   "author": "Tobias Berger",
   "license": "ISC",
   "scripts": {
-    "__predev": "ts-node -P generateDataFiles.tsconfig.json generateDataFiles.ts dev",
+    "predev": "ts-node -P generateDataFiles.tsconfig.json generateDataFiles.ts dev",
     "dev": "next",
-    "__prebuild": "ts-node -P generateDataFiles.tsconfig.json generateDataFiles.ts",
+    "prebuild": "ts-node -P generateDataFiles.tsconfig.json generateDataFiles.ts",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
