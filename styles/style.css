@@ -1,5 +1,16 @@
+:root {
+  --background-color: white;
+  --foreground-color: black;
+}
+[data-theme="dark"] {
+  --background-color: black;
+  --foreground-color: white;
+}
+
 body {
   font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
 }
 
 em {
@@ -30,26 +41,20 @@ ul {
   margin: 5px;
 }
 
-@media screen and (min-width: 550px) {
+@media (min-width: 550px) {
   .modifierDiv + .modifierDiv {
-    border-left: solid 1px black;
+    border-left: solid 1px var(--foreground-color);
   }
 }
 
 .horizontal-rule {
-  display: block;
-  unicode-bidi: isolate;
-  margin-block-start: 0.5em;
-  margin-block-end: 0.5em;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  overflow: hidden;
   border-style: inset;
   border-width: 1px;
 }
 
 .json {
   font-size: 20px;
+  filter: brightness(150%);
 }
 
 .json > .jsonString {
@@ -57,7 +62,7 @@ ul {
 }
 
 .json > .jsonNumber {
-  color: blue;
+  color: blueviolet;
 }
 
 .json > .jsonBoolean {

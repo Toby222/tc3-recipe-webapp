@@ -4,6 +4,7 @@ import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 
 import Link from "next/link";
+import Head from "next/head";
 
 import { JSONComponent } from "../components/json";
 
@@ -33,16 +34,34 @@ class ModifierPage extends React.Component<Props> {
     );
 
     return typeof modifierId !== "string" ? (
-      <>Something went wrong... Are you sure this is a modifier?</>
+      <>
+        <Head>
+          <title key="title">Error - Tinkers&apos; Construct Modifiers</title>
+        </Head>
+        Something went wrong... Are you sure this is a modifier?
+      </>
     ) : (
       <>
+        <Head>
+          <title key="title">
+            {getTranslation("modifier." + modifierId.replace(":", "."))} -
+            Tinkers&apos; Construct Modifiers
+          </title>
+        </Head>
         <ul id="headerBar">
-          <Link href="/">Back</Link> |{" "}
-          <span style={{ fontWeight: "bold" }}>({modifierId})</span> |{" "}
+          <Link key="backlink" href="/">
+            Back
+          </Link>{" "}
+          |{" "}
+          <span key="modifierid" style={{ fontWeight: "bold" }}>
+            ({modifierId})
+          </span>{" "}
+          |{" "}
           <input
             id="translationInput"
             ref={this.translationInput}
             type="text"
+            key="translationinput"
             onInput={() => {
               const label = this.translationInput.current?.labels?.item(0);
               if (!label) return;
@@ -51,40 +70,43 @@ class ModifierPage extends React.Component<Props> {
               );
             }}
           />{" "}
-          <label htmlFor="translationInput">
+          <label key="translationoutput" htmlFor="translationInput">
             Enter untranslated Tinkers&apos; Construct string here
           </label>
         </ul>
-        <>
-          <h1>{getTranslation("modifier." + modifierId.replace(":", "."))}</h1>
-          <div style={{ fontSize: 20 }}>
-            <span style={{ textDecoration: "underline" }}>
-              {getTranslation(
-                "modifier." + modifierId.replace(":", ".") + ".flavor"
-              )}
-            </span>
-            <br />
-            <br />
-            <span>
-              {getTranslation(
-                "modifier." + modifierId.replace(":", ".") + ".description"
-              )}
-            </span>
-          </div>
-        </>
+        <h1>{getTranslation("modifier." + modifierId.replace(":", "."))}</h1>
+        <div style={{ fontSize: 20 }}>
+          <span style={{ textDecoration: "underline" }}>
+            {getTranslation(
+              "modifier." + modifierId.replace(":", ".") + ".flavor"
+            )}
+          </span>
+          <br />
+          <br />
+          <span>
+            {getTranslation(
+              "modifier." + modifierId.replace(":", ".") + ".description"
+            )}
+          </span>
+        </div>
         <br />
         {validRecipes.length > 0 ? (
           <h1>Recipes</h1>
         ) : (
           <>
+            <Head>
+              <title key="title">
+                Error - Tinkers&apos; Construct Modifiers
+              </title>
+            </Head>
             <h1>No recipes found...</h1>
             <h6>... Are you sure this is a modifier?</h6>
           </>
         )}
         {validRecipes.map(([, recipe], idx) => (
           <>
-            <div className="horizontal-rule" />
-            <JSONComponent key={idx} json={recipe} />
+            <div key={idx + "hr"} className="horizontal-rule" />
+            <JSONComponent key={idx + "json"} json={recipe} />
           </>
         ))}
         <div className="horizontal-rule" />
