@@ -4,7 +4,7 @@ import "../styles/style.css";
 
 import App from "next/app";
 
-export default class CustomApp extends App {
+export default class AppThatSetsTheme extends App {
   private setTheme() {
     const prefersDark: boolean =
       globalThis.window?.matchMedia("(prefers-color-scheme: dark)").matches ||

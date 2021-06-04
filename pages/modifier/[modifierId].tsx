@@ -3,27 +3,18 @@ import React from "react";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 
-import Link from "next/link";
 import Head from "next/head";
 
-import { JSONComponent } from "../components/json";
+import { JSONComponent } from "../../components/json";
 
-import Recipes from "../data/recipes.json";
-import { RecipesJSON } from "../util/types";
-import { getTranslation } from "../util/translation";
-import { ToggleDarkModeButtonComponent } from "../components/toggleDarkModeButton";
+import Recipes from "../../data/recipes.json";
+import { RecipesJSON } from "../../util/types";
+import { getTranslation } from "../../util/translation";
+import { HeaderBarComponent } from "../../components/headerBar";
 
 type Props = WithRouterProps;
 
 class ModifierPage extends React.Component<Props> {
-  private translationInput;
-
-  constructor(props: Props) {
-    super(props);
-
-    this.translationInput = React.createRef<HTMLInputElement>();
-  }
-
   render(): JSX.Element {
     const modifierId = this.props.router.query["modifierId"];
     const allRecipes = Recipes as RecipesJSON;
@@ -49,27 +40,10 @@ class ModifierPage extends React.Component<Props> {
             Tinkers&apos; Construct Modifiers
           </title>
         </Head>
-        <ul id="headerBar">
-          <Link href="/">Back</Link> |{" "}
-          <span style={{ fontWeight: "bold" }}>({modifierId})</span> <br />
-          <input
-            id="translationInput"
-            ref={this.translationInput}
-            type="text"
-            onInput={() => {
-              const label = this.translationInput.current?.labels?.item(0);
-              if (!label) return;
-              (label.firstChild as HTMLPreElement).textContent =
-                getTranslation(this.translationInput.current?.value ?? "") ||
-                "Enter untranslated Tinkers' Construct string here";
-            }}
-          />
-          <br />
-          <label htmlFor="translationInput">
-            <pre>Enter untranslated Tinkers&apos; Construct string here</pre>
-          </label>
-          <ToggleDarkModeButtonComponent />
-        </ul>
+        <HeaderBarComponent>
+          {" "}
+          | <span className="bold">Recipes</span> | <span>({modifierId})</span>
+        </HeaderBarComponent>
         <h1>{getTranslation("modifier." + modifierId.replace(":", "."))}</h1>
         <div style={{ fontSize: 20 }}>
           <span style={{ textDecoration: "underline" }}>

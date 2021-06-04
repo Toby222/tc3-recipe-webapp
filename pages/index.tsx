@@ -1,11 +1,14 @@
 import React from "react";
-import { ModifierLinkComponent } from "../components/modifierLink";
+
+import Head from "next/head";
 
 import Recipes from "../data/recipes.json";
 import { RecipesJSON } from "../util/types";
 
-import Head from "next/head";
+import { ModifierLinkComponent } from "../components/modifierLink";
 import { ToggleDarkModeButtonComponent } from "../components/toggleDarkModeButton";
+import { IndexSectionComponent } from "../components/indexSection";
+import { IndexLinkComponent } from "../components/indexLink";
 
 export default class IndexPage extends React.Component {
   render(): JSX.Element {
@@ -18,8 +21,12 @@ export default class IndexPage extends React.Component {
         </Head>
         <ToggleDarkModeButtonComponent />
         <div id="indexDiv">
-          <div id="abilitiesDiv" className="modifierDiv">
-            <h2>Abilities</h2>
+          <IndexSectionComponent id="utilitiesDiv" title="Utilities">
+            <IndexLinkComponent link="/translation">
+              Translations
+            </IndexLinkComponent>
+          </IndexSectionComponent>
+          <IndexSectionComponent id="abilitiesDiv" title="Abilities">
             <ul>
               {Object.entries(recipes.abilityRecipes)
                 .map(([, recipe]) => recipe.result.name)
@@ -32,9 +39,8 @@ export default class IndexPage extends React.Component {
                   </li>
                 ))}
             </ul>
-          </div>
-          <div id="upgradesDiv" className="modifierDiv">
-            <h2>Upgrades</h2>
+          </IndexSectionComponent>
+          <IndexSectionComponent id="upgradesDiv" title="Upgrades">
             <ul>
               {Object.entries(recipes.upgradeRecipes)
                 .map(([, recipe]) => recipe.result.name)
@@ -47,9 +53,8 @@ export default class IndexPage extends React.Component {
                   </li>
                 ))}
             </ul>
-          </div>
-          <div id="slotlessDiv" className="modifierDiv">
-            <h2>Slotless Upgrades</h2>
+          </IndexSectionComponent>
+          <IndexSectionComponent id="slotlessDiv" title="Slotless Upgrades">
             <ul>
               {Object.entries(recipes.slotlessRecipes)
                 .map(([, recipe]) => recipe.result.name)
@@ -62,7 +67,7 @@ export default class IndexPage extends React.Component {
                   </li>
                 ))}
             </ul>
-          </div>
+          </IndexSectionComponent>
         </div>
       </>
     );

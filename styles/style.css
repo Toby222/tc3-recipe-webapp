@@ -49,7 +49,7 @@ ul {
   width: 100%;
 }
 
-.modifierDiv {
+.indexSection {
   flex: 1 1 auto;
   text-align: center;
   margin: 5px;
@@ -69,17 +69,33 @@ pre {
   overflow-x: auto;
 }
 
-@media screen and (min-width: 550px) {
-  .modifierDiv + .modifierDiv {
+#translationInput {
+  width: stretch;
+}
+
+#translationOutput {
+  word-wrap: break-word;
+  height: stretch;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .indexSection + .indexSection {
     border-left: solid 1px var(--foreground-color);
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   #indexDiv {
     flex-direction: column;
   }
-  .json {
+  .json,
+  #translationOutput {
     font-size: 15px;
   }
 }
