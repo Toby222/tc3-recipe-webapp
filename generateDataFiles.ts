@@ -22,6 +22,7 @@ async function* getFolderContentsRecursive(
   }
 }
 export async function generateRecipesFile(dev = false) {
+  console.log("generating recipes file");
   const modifierBasePath =
     "./TinkersConstruct/src/generated/resources/data/tconstruct/recipes/tools/modifiers/";
   const abilityFilesGenerator = getFolderContentsRecursive(
@@ -70,9 +71,11 @@ export async function generateRecipesFile(dev = false) {
     "./data/recipes.json",
     JSON.stringify(recipes, null, dev ? 2 : 0)
   );
+  console.log("generated recipes file");
 }
 
 export async function generateLangsFile(dev = false) {
+  console.log("generating lang file");
   const files = getFolderContentsRecursive(
     "./TinkersConstruct/src/main/resources/assets/tconstruct/lang"
   );
@@ -96,9 +99,11 @@ export async function generateLangsFile(dev = false) {
     "./data/lang.json",
     JSON.stringify(lang, null, dev ? 2 : 0)
   );
+  console.log("generated lang file");
 }
 
 export async function generateMetaFile(dev = false) {
+  console.log("genrating meta files");
   const gradleProperties = (
     await fs.readFile("./TinkersConstruct/gradle.properties")
   ).toString("utf-8");
@@ -120,6 +125,7 @@ export async function generateMetaFile(dev = false) {
     ),
     fs.writeFile("./data/meta.json", JSON.stringify(meta, null, dev ? 2 : 0)),
   ]);
+  console.log("generated meta files");
 }
 
 async function main() {
@@ -130,4 +136,4 @@ async function main() {
     generateMetaFile(dev),
   ]);
 }
-main().catch((err) => console.error(err));
+main();
