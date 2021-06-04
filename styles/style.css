@@ -1,10 +1,12 @@
 :root {
   --background-color: white;
   --foreground-color: black;
+  --link-color: blue;
 }
-[data-theme="dark"] {
+.dark {
   --background-color: black;
   --foreground-color: white;
+  --link-color: skyblue;
 }
 
 body {
@@ -24,7 +26,11 @@ ul {
 }
 
 :is(a, a:visited) {
-  color: blue;
+  color: var(--link-color);
+}
+
+#toggleDarkModeButton {
+  float: right;
 }
 
 #indexDiv {

@@ -5,26 +5,22 @@ import "../styles/style.css";
 import App from "next/app";
 
 export default class CustomApp extends App {
-  private updateTheme(dark: boolean) {
-    if (dark) {
-      document.body.setAttribute("data-theme", "dark");
-    } else {
-      document.body.setAttribute("data-theme", "light");
-    }
+  private setTheme() {
+    const prefersDark: boolean =
+      globalThis.window?.matchMedia("(prefers-color-scheme: dark)").matches ||
+      globalThis.localStorage.getItem("prefersDark") === "true";
+    document.body.classList.toggle("dark", prefersDark);
+    document.body.classList.toggle("light", !prefersDark);
   }
 
   componentDidMount() {
-    this.updateTheme(
-      globalThis.window?.matchMedia("(prefers-color-scheme: dark)").matches
-    );
+    this.setTheme();
   }
 
   render() {
     globalThis.window
       ?.matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (event: MediaQueryListEvent) => {
-        this.updateTheme(event.matches);
-      });
+      .addEventListener("change", this.setTheme);
     return <this.props.Component {...this.props.pageProps} />;
   }
 }

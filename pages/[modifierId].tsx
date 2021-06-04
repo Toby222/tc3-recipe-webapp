@@ -11,6 +11,7 @@ import { JSONComponent } from "../components/json";
 import Recipes from "../data/recipes.json";
 import { RecipesJSON } from "../util/types";
 import { getTranslation } from "../util/translation";
+import { ToggleDarkModeButtonComponent } from "../components/toggleDarkModeButton";
 
 type Props = WithRouterProps;
 
@@ -66,6 +67,7 @@ class ModifierPage extends React.Component<Props> {
           <label htmlFor="translationInput">
             Enter untranslated Tinkers&apos; Construct string here
           </label>
+          <ToggleDarkModeButtonComponent />
         </ul>
         <h1>{getTranslation("modifier." + modifierId.replace(":", "."))}</h1>
         <div style={{ fontSize: 20 }}>

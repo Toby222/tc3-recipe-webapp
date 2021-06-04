@@ -5,6 +5,7 @@ import Recipes from "../data/recipes.json";
 import { RecipesJSON } from "../util/types";
 
 import Head from "next/head";
+import { ToggleDarkModeButtonComponent } from "../components/toggleDarkModeButton";
 
 export default class IndexPage extends React.Component {
   render(): JSX.Element {
@@ -15,6 +16,7 @@ export default class IndexPage extends React.Component {
         <Head>
           <title key="title">Index - Tinkers&apos; Construct Modifiers</title>
         </Head>
+        <ToggleDarkModeButtonComponent />
         <div id="indexDiv">
           <div id="abilitiesDiv" className="modifierDiv">
             <h2>Abilities</h2>
