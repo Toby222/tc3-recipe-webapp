@@ -1,8 +1,19 @@
+@font-face {
+  font-family: "Minecraft-Regular";
+  src: url("/Minecraft-Regular.ttf.woff") format("woff"),
+    url("/Minecraft-Regular.ttf.svg#Minecraft-Regular") format("svg"),
+    url("/Minecraft-Regular.ttf.eot"),
+    url("/Minecraft-Regular.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background-color: white;
   --foreground-color: black;
   --link-color: blue;
 }
+
 .dark {
   --background-color: black;
   --foreground-color: white;
@@ -10,7 +21,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: Minecraft-Regular, sans-serif;
   background-color: var(--background-color);
   color: var(--foreground-color);
 }
@@ -67,6 +78,7 @@ ul {
 
 pre {
   overflow-x: auto;
+  font-family: Minecraft-Regular, monospace;
 }
 
 #translationInput {
@@ -76,7 +88,6 @@ pre {
 #translationOutput {
   word-wrap: break-word;
   height: stretch;
-  font-family: monospace;
   font-size: 20px;
 }
 
