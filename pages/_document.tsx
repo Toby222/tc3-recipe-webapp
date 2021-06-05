@@ -33,8 +33,8 @@ export default class DocumentWithLightTheme extends Document {
             content="https://tc3.tobot.tech/favicon.png"
           />
 
-          <meta property="og:image:width" content="128" />
-          <meta property="og:image:height" content="128" />
+          <meta property="og:image:width" content="160" />
+          <meta property="og:image:height" content="160" />
           <meta
             property="og:image:alt"
             content="A Guide book, bound in wooden panels"
