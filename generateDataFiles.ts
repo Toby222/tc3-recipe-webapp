@@ -121,7 +121,7 @@ export async function generateMetaFile(dev = false) {
     (await fs.readFile("./public/oEmbed.json")).toString("utf-8")
   );
 
-  oEmbed.provider_name = "For Tinkers' Construct version " + modVersion;
+  oEmbed.provider_name = "TC_" + modVersion;
 
   await Promise.allSettled([
     fs.writeFile(
