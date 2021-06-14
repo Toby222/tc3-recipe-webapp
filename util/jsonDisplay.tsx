@@ -53,20 +53,7 @@ export function syntaxHighlight(json: string | Record<string, unknown>) {
   json = json
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(
-      String.raw`
-  "type": "tconstruct:modifier",`,
-      String.raw`
-  "type": "tconstruct:modifier",
-  // Hewwo?
-
-  
-  /* Multi
-  line
-  commmmmeeennnnt // Uwu
-  */invalid stuff`
-    );
+    .replace(/>/g, "&gt;");
 
   const keys = {
     jsonBoolean: 0,
