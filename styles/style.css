@@ -26,6 +26,10 @@ body {
   color: var(--foreground-color);
 }
 
+button {
+  font-family: Minecraft-Regular, sans-serif;
+}
+
 em {
   font-style: normal;
   text-decoration: underline;
