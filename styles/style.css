@@ -111,30 +111,45 @@ pre {
   }
 }
 
-.json > .jsonString {
-  color: green;
-}
-
-.json > .jsonNumber {
-  color: blueviolet;
-}
-
 .json > .jsonBoolean {
   color: firebrick;
 }
-
-.json > .jsonNull {
-  color: gray;
+.json > .jsonComment {
+  color: darkslategray;
 }
-
+.json > .jsonControl {
+  color: purple;
+}
+.json > .jsonInvalid {
+  color: red;
+  animation: pulsate 3s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+}
 .json > .jsonKey {
   color: hsl(33, 100%, 35%);
 }
-
-.json > .jsonText {
-  color: purple;
+.json > .jsonNull {
+  color: gray;
 }
-
+.json > .jsonNumber {
+  color: blueviolet;
+}
+.json > .jsonString {
+  color: green;
+}
 .json > .jsonWhitespace {
   color: white;
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
