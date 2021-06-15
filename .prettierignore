@@ -3,5 +3,6 @@ generateDataFiles.tsconfig.json
 
 .next/
 .vercel/
+public/
 TinkersConstruct/
 data/*.json
