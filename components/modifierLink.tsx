@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IndexLinkComponent } from "./indexLink";
+import Link from "next/link";
 import { getTranslation } from "../util/translation";
 
 type Props = { modifierId: string };
@@ -11,9 +11,9 @@ export class ModifierLinkComponent extends React.Component<Props> {
       "modifier." + this.props.modifierId.replace(":", ".")
     );
     return (
-      <IndexLinkComponent link={"/modifier/" + this.props.modifierId}>
-        {modifierName}
-      </IndexLinkComponent>
+      <Link href={"/modifier/" + this.props.modifierId}>
+        <a className="indexLink">{modifierName}</a>
+      </Link>
     );
   }
 }

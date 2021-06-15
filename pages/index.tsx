@@ -1,6 +1,7 @@
 import React from "react";
 
 import Head from "next/head";
+import Link from "next/link";
 
 import Recipes from "../data/recipes.json";
 import { NormalModifierRecipe, RecipesJSON } from "../util/types";
@@ -8,7 +9,6 @@ import { NormalModifierRecipe, RecipesJSON } from "../util/types";
 import { ModifierLinkComponent } from "../components/modifierLink";
 import { ToggleDarkModeButtonComponent } from "../components/toggleDarkModeButton";
 import { IndexSectionComponent } from "../components/indexSection";
-import { IndexLinkComponent } from "../components/indexLink";
 
 export default class IndexPage extends React.Component {
   render(): JSX.Element {
@@ -22,9 +22,9 @@ export default class IndexPage extends React.Component {
         <ToggleDarkModeButtonComponent />
         <div id="indexDiv">
           <IndexSectionComponent id="utilitiesDiv" title="Utilities">
-            <IndexLinkComponent link="/translation">
-              Translations
-            </IndexLinkComponent>
+            <Link href="/translation">
+              <a className="indexLink">Translations</a>
+            </Link>
           </IndexSectionComponent>
           <IndexSectionComponent id="abilitiesDiv" title="Abilities">
             <ul>
@@ -74,9 +74,11 @@ export default class IndexPage extends React.Component {
                 ))}
               <br />
               <div className="horizontal-rule" />
-              <IndexLinkComponent link={"/modifier/overslime/"}>
-                <h4>Overslime refilling recipes</h4>
-              </IndexLinkComponent>
+              <Link href="/modifier/overslime/">
+                <a className="indexLink">
+                  <h4>Overslime refilling recipes</h4>
+                </a>
+              </Link>
             </ul>
           </IndexSectionComponent>
         </div>
