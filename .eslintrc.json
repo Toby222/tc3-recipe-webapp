@@ -16,7 +16,10 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "plugin:@next/next/recommended",
+    "prettier",
+    "next",
+    "next/core-web-vitals"
   ],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
