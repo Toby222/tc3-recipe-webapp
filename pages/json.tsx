@@ -9,13 +9,11 @@ type Props = Record<string, never>;
 
 export default class TranslationPage extends React.Component<Props> {
   private translationInput;
-  private translationOutput;
 
   constructor(props: Props) {
     super(props);
 
-    this.translationInput = React.createRef<HTMLInputElement>();
-    this.translationOutput = React.createRef<HTMLDivElement>();
+    this.translationInput = React.createRef<HTMLTextAreaElement>();
   }
 
   render() {
@@ -29,10 +27,9 @@ export default class TranslationPage extends React.Component<Props> {
           | <span className="bold">Testing</span>
         </HeaderBarComponent>
         <label htmlFor="translationInput">Enter JSON here</label>
-        <input
+        <textarea
           id="translationInput"
           ref={this.translationInput}
-          type="text"
           onInput={() => {
             this.forceUpdate();
           }}
