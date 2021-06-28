@@ -19,9 +19,9 @@ class ModifierPage extends React.Component<Props> {
     const modifierId = this.props.router.query["modifierId"];
     const allRecipes = Recipes as RecipesJSON;
 
-    const validRecipes = Object.entries(allRecipes).flatMap(([, recipes]) =>
-      Object.entries(recipes).filter(
-        ([, recipe]) =>
+    const validRecipes = Object.values(allRecipes).flatMap((recipeCollection) =>
+      Object.values(recipeCollection).filter(
+        (recipe) =>
           !isOverslimeModifierRecipe(recipe) &&
           recipe.result.name === modifierId
       )
@@ -75,7 +75,7 @@ class ModifierPage extends React.Component<Props> {
             <h6>... Are you sure this is a modifier?</h6>
           </>
         )}
-        {validRecipes.map(([, recipe], idx) => (
+        {validRecipes.map((recipe, idx) => (
           <React.Fragment key={modifierId + "-recipe-" + idx}>
             <div className="horizontal-rule" />
             <JSONComponent json={recipe} />

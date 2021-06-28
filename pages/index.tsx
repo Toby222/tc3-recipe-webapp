@@ -28,8 +28,8 @@ export default class IndexPage extends React.Component {
           </IndexSectionComponent>
           <IndexSectionComponent id="abilitiesDiv" title="Abilities">
             <ul>
-              {Object.entries(allRecipes.abilityRecipes)
-                .map(([, recipe]) => recipe.result.name)
+              {Object.values(allRecipes.abilityRecipes)
+                .map((recipe) => recipe.result.name)
                 .filter(
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )
@@ -42,8 +42,8 @@ export default class IndexPage extends React.Component {
           </IndexSectionComponent>
           <IndexSectionComponent id="upgradesDiv" title="Upgrades">
             <ul>
-              {Object.entries(allRecipes.upgradeRecipes)
-                .map(([, recipe]) => recipe.result.name)
+              {Object.values(allRecipes.upgradeRecipes)
+                .map((recipe) => recipe.result.name)
                 .filter(
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )
@@ -56,14 +56,11 @@ export default class IndexPage extends React.Component {
           </IndexSectionComponent>
           <IndexSectionComponent id="slotlessDiv" title="Slotless Upgrades">
             <ul>
-              {Object.entries(allRecipes.slotlessRecipes)
+              {Object.values(allRecipes.slotlessRecipes)
                 .filter(
-                  ([, recipe]) =>
-                    recipe.type !== `tconstruct:overslime_modifier`
+                  (recipe) => recipe.type !== `tconstruct:overslime_modifier`
                 )
-                .map(
-                  ([, recipe]) => (recipe as NormalModifierRecipe).result.name
-                )
+                .map((recipe) => (recipe as NormalModifierRecipe).result.name)
                 .filter(
                   (modifierId, idx, array) => array.indexOf(modifierId) === idx
                 )

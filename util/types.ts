@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export type RecipesJSON = {
-  abilityRecipes: Record<string, NormalModifierRecipe>;
-  slotlessRecipes: Record<string, AnyModifierRecipe>;
-  upgradeRecipes: Record<string, NormalModifierRecipe>;
+  abilityRecipes: NormalModifierRecipe[];
+  slotlessRecipes: AnyModifierRecipe[];
+  upgradeRecipes: NormalModifierRecipe[];
 };
 
 export type MinecraftId = `minecraft:${string}`;

@@ -28,12 +28,12 @@ export async function generateRecipesFile(dev = false) {
   const abilityFilesGenerator = getFolderContentsRecursive(
     modifierBasePath + "ability/"
   );
-  const abilityRecipes: Record<string, NormalModifierRecipe> = {};
+  const abilityRecipes: NormalModifierRecipe[] = [];
   for await (const file of abilityFilesGenerator) {
     const fileContents = await fs.readFile(file);
     const parsedContents = JSON.parse(fileContents.toString("utf-8"));
     if (isNormalModifierRecipe(parsedContents)) {
-      abilityRecipes[file] = parsedContents;
+      abilityRecipes.push(parsedContents);
     } else {
       // eslint-disable-next-line no-console
       console.debug("{ability} not a recipe", file);
@@ -43,12 +43,12 @@ export async function generateRecipesFile(dev = false) {
   const upgradeFilesGenerator = getFolderContentsRecursive(
     modifierBasePath + "upgrade/"
   );
-  const upgradeRecipes: Record<string, NormalModifierRecipe> = {};
+  const upgradeRecipes: NormalModifierRecipe[] = [];
   for await (const file of upgradeFilesGenerator) {
     const fileContents = await fs.readFile(file);
     const parsedContents = JSON.parse(fileContents.toString("utf-8"));
     if (isNormalModifierRecipe(parsedContents))
-      upgradeRecipes[file] = parsedContents;
+      upgradeRecipes.push(parsedContents);
     // eslint-disable-next-line no-console
     else console.debug("{upgrade} not a recipe", file);
   }
@@ -56,12 +56,12 @@ export async function generateRecipesFile(dev = false) {
   const slotlessFilesGenerator = getFolderContentsRecursive(
     modifierBasePath + "slotless/"
   );
-  const slotlessRecipes: Record<string, AnyModifierRecipe> = {};
+  const slotlessRecipes: AnyModifierRecipe[] = [];
   for await (const file of slotlessFilesGenerator) {
     const fileContents = await fs.readFile(file);
     const parsedContents = JSON.parse(fileContents.toString("utf-8"));
     if (isAnyModifierRecipe(parsedContents))
-      slotlessRecipes[file] = parsedContents;
+      slotlessRecipes.push(parsedContents);
     // eslint-disable-next-line no-console
     else console.debug("{slotless} not a recipe", file);
   }
