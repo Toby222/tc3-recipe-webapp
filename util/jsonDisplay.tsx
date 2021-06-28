@@ -26,7 +26,7 @@ const JSON_REGEX = new RegExp(
     String.raw`(?<number>-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)`,
     String.raw`(?<whitespace>\s+)`,
     String.raw`(?<control>(?:[:,\{\}\[]|])+)`,
-    String.raw`(?<comment>\/\/[^\n\r]+|\/\*(?:.|[\n\r])*\*\/)`,
+    String.raw`(?<comment>\/\/[^\n\r]+|\/\*(?:.|[\n\r])*?\*\/)`,
     String.raw`(?<invalid>.+)`,
   ].join("|"),
   "g"
