@@ -1,4 +1,9 @@
 module.exports = {
+  eslint: {
+    // Warning: Dangerously allow production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
   webpack: (config, { dev }) => {
     // Replace React with Preact only in client production build
     if (!dev) {
@@ -10,10 +15,5 @@ module.exports = {
     }
 
     return config;
-  },
-  eslint: {
-    // Warning: Dangerously allow production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
   },
 };
