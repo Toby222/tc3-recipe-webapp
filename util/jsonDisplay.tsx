@@ -49,13 +49,6 @@ export function syntaxHighlight(json: string | Record<string, unknown>) {
     json = JSON.stringify(json, null, 2);
   }
 
-  /*
-  json = json
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-  */
-
   const keys = {
     jsonBoolean: 0,
     jsonComment: 0,
