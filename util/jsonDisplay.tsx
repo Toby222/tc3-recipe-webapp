@@ -16,7 +16,6 @@ export function outputPretty(json: string | Record<string, unknown>) {
   }
 }
 
-/*/(?<key>"(?:\\u[a-zA-Z0-9]{4}|[^\\"])*"(?=\s*:))|(?<string>"(?:\\u[a-zA-Z0-9]{4}|[^\\"])*")|\b(?<bool>true|false)\b|\b(?<null>null)\b|(?<number>-?\d+(?:\.\d*)?(?:[eE](?:\+|\-)?\d+)?)|(?<whitespace>\s+)|(?<control>(?:[:,\{\}\[]|])+)|(?<invalid>.+?)/g;*/
 const JSON_REGEX = new RegExp(
   [
     String.raw`(?<key>"(?:\\u[a-zA-Z0-9]{4}|[^\\"])*"(?=\s*:))`,
@@ -26,7 +25,7 @@ const JSON_REGEX = new RegExp(
     String.raw`(?<number>-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)`,
     String.raw`(?<whitespace>\s+)`,
     String.raw`(?<control>(?:[:,\{\}\[]|])+)`,
-    String.raw`(?<comment>\/\/[^\n\r]+|\/\*(?:.|[\n\r])*?\*\/)`,
+    String.raw`(?<comment>\/\/[^\n\r]*|\/\*(?:.|[\n\r])*?\*\/)`,
     String.raw`(?<invalid>.+)`,
   ].join("|"),
   "g"
@@ -50,10 +49,12 @@ export function syntaxHighlight(json: string | Record<string, unknown>) {
     json = JSON.stringify(json, null, 2);
   }
 
+  /*
   json = json
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+  */
 
   const keys = {
     jsonBoolean: 0,
