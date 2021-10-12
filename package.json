@@ -25,25 +25,25 @@
     "test": "tsc && yarn lint:eslint-strict && yarn lint:prettier"
   },
   "devDependencies": {
-    "@types/node": "^15.12.5",
-    "@types/react-dom": "^17.0.8",
-    "@typescript-eslint/eslint-plugin": "^4.28.0",
-    "@typescript-eslint/parser": "^4.28.0",
-    "eslint": "^7.29.0",
-    "eslint-config-next": "^11.0.1",
+    "@types/node": "^16.10.3",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "7",
+    "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
-    "prettier": "^2.3.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.3.4",
-    "vercel": "^23.0.1"
+    "typescript": "^4.4.3",
+    "vercel": "^23.1.2"
   },
   "dependencies": {
-    "@types/react": "^17.0.11",
-    "next": "^11.0.1",
-    "preact": "^10.5.13",
-    "ts-node": "^10.0.0"
+    "@types/react": "^17.0.28",
+    "next": "^11.1.2",
+    "preact": "^10.5.15",
+    "ts-node": "^10.3.0"
   }
 }

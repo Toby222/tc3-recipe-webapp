@@ -1,6 +1,6 @@
 import React from "react";
 
-import Head from "next/dist/next-server/lib/head";
+import Head from "next/head";
 
 import { getAllModifiers } from "../../util/getAllModifiers";
 
