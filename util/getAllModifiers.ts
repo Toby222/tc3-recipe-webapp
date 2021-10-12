@@ -1,6 +1,7 @@
 import {
   getItemIdentifierId,
   isOverslimeModifierRecipe,
+  isRemoveModifierRecipe,
   RecipesJSON,
   TConstructId,
 } from "./types";
@@ -14,7 +15,7 @@ export function getAllModifiers(excludeOverslime = true) {
         !excludeOverslime || recipe.type !== `tconstruct:overslime_modifier`
     )
     .map((recipe) =>
-      isOverslimeModifierRecipe(recipe)
+      isOverslimeModifierRecipe(recipe) || isRemoveModifierRecipe(recipe)
         ? getItemIdentifierId(recipe.ingredient)
         : (recipe.result.name as TConstructId)
     )

@@ -58,7 +58,9 @@ export default class IndexPage extends React.Component {
             <ul>
               {Object.values(allRecipes.slotlessRecipes)
                 .filter(
-                  (recipe) => recipe.type !== `tconstruct:overslime_modifier`
+                  (recipe) =>
+                    recipe.type !== `tconstruct:overslime_modifier` &&
+                    recipe.type !== `tconstruct:remove_modifier`
                 )
                 .map((recipe) => (recipe as NormalModifierRecipe).result.name)
                 .filter(
@@ -74,6 +76,12 @@ export default class IndexPage extends React.Component {
               <Link href="/modifier/overslime/">
                 <a className="indexLink">
                   <h4>Overslime refilling recipes</h4>
+                </a>
+              </Link>
+              <div className="horizontal-rule" />
+              <Link href="/modifier/remove">
+                <a className="indexLink">
+                  <h4>Remove modifier</h4>
                 </a>
               </Link>
             </ul>

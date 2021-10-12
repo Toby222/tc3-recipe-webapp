@@ -8,7 +8,11 @@ import Head from "next/head";
 import { JSONComponent } from "../../components/json";
 
 import Recipes from "../../data/recipes.json";
-import { isOverslimeModifierRecipe, RecipesJSON } from "../../util/types";
+import {
+  isOverslimeModifierRecipe,
+  isRemoveModifierRecipe,
+} from "../../util/types";
+import type { RecipesJSON } from "../../util/types";
 import { getTranslation } from "../../util/translation";
 import { HeaderBarComponent } from "../../components/headerBar";
 
@@ -22,8 +26,9 @@ class ModifierPage extends React.Component<Props> {
     const validRecipes = Object.values(allRecipes).flatMap((recipeCollection) =>
       Object.values(recipeCollection).filter(
         (recipe) =>
-          !isOverslimeModifierRecipe(recipe) &&
-          recipe.result.name === modifierId
+          !(
+            isOverslimeModifierRecipe(recipe) || isRemoveModifierRecipe(recipe)
+          ) && recipe.result.name === modifierId
       )
     );
 

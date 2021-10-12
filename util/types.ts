@@ -31,6 +31,10 @@ export type ItemSpecifier =
       type: `mantle:without`;
       base: ItemSpecifier;
       without: ItemIdentifier | ItemIdentifier[];
+    }
+  | {
+      type: `mantle:intersection`;
+      ingredients: ItemIdentifier[];
     };
 
 export type ToolRequirementsBasic = {
@@ -59,8 +63,10 @@ export type ModifierRecipe = {
     level: number;
   };
   max_level?: number;
-  ability_slots?: number;
-  upgrade_slots?: number;
+  slots?: {
+    abilities?: number;
+    upgrades?: number;
+  };
 };
 
 export type IncrementalModifierRecipe = {
@@ -75,7 +81,9 @@ export type IncrementalModifierRecipe = {
     level: number;
   };
   max_level: number;
-  upgrade_slots: number;
+  slots: {
+    upgrades: number;
+  };
 };
 
 export type OverslimeModifierRecipe = {
@@ -84,8 +92,17 @@ export type OverslimeModifierRecipe = {
   restore_amount: number;
 };
 
+export type RemoveModifierRecipe = {
+  type: `tconstruct:remove_modifier`;
+  ingredient: ItemIdentifier;
+  container: Id;
+};
+
 export type NormalModifierRecipe = ModifierRecipe | IncrementalModifierRecipe;
-export type AnyModifierRecipe = NormalModifierRecipe | OverslimeModifierRecipe;
+export type AnyModifierRecipe =
+  | NormalModifierRecipe
+  | OverslimeModifierRecipe
+  | RemoveModifierRecipe;
 
 export function isMultiItemIdentifier(val: any): val is MultiItemIdentifier {
   const result =
@@ -97,15 +114,23 @@ export function isMultiItemIdentifier(val: any): val is MultiItemIdentifier {
 }
 
 export function isItemSpecifier(val: any): val is ItemSpecifier {
-  const result =
-    isItemIdentifier(val) ||
+  let result = isItemIdentifier(val);
+  result =
+    result ||
     (typeof val === "object" &&
       val !== null &&
       val.type === `mantle:without` &&
       (isItemIdentifier(val.without) ||
         (Array.isArray(val.without) &&
-          val.without.every((element: any) => isItemIdentifier(element)))) &&
-      isItemSpecifier(val.base));
+          val.without.every((element: any) => isItemIdentifier(element)) &&
+          isItemSpecifier(val.base))));
+  result =
+    result ||
+    (typeof val === "object" &&
+      val !== null &&
+      val.type === `mantle:intersection` &&
+      Array.isArray(val.ingredients) &&
+      val.ingredients.every((element: any) => isItemIdentifier(element)));
   return result;
 }
 
@@ -167,6 +192,14 @@ export function isOverslimeModifierRecipe(
   return true;
 }
 
+export function isRemoveModifierRecipe(val: any): val is RemoveModifierRecipe {
+  if (typeof val !== "object") return false;
+  if (val.type !== `tconstruct:remove_modifier`) return false;
+  if (!isId(val.container)) return false;
+  if (!isItemIdentifier(val.ingredient)) return false;
+  return true;
+}
+
 export function isIncrementalModifierRecipe(
   val: any
 ): val is IncrementalModifierRecipe {
@@ -185,8 +218,8 @@ export function isIncrementalModifierRecipe(
   if (val.max_level !== undefined && typeof val.max_level !== "number")
     return false;
 
-  if (val.upgrade_slots !== undefined && typeof val.upgrade_slots !== "number")
-    return false;
+  if (val.slots === undefined || typeof val.slots !== "object") return false;
+  if (typeof val.slots.upgrades !== "number") return false;
   return true;
 }
 
@@ -199,15 +232,15 @@ export function isModifierRecipe(val: any): val is ModifierRecipe {
       Array.isArray(val.inputs) &&
       val.inputs.every(
         (element: any) =>
-          isItemIdentifier(element) ||
-          isMultiItemIdentifier(element) ||
-          isItemSpecifier(element)
+          isMultiItemIdentifier(element) || isItemSpecifier(element)
       )
     )
   ) {
     return false;
   }
-  if (!isItemSpecifier(val.tools)) return false;
+  if (!isItemSpecifier(val.tools)) {
+    return false;
+  }
   if (val.requirements !== undefined && !isToolRequirements(val.requirements))
     return false;
   if (
@@ -219,9 +252,15 @@ export function isModifierRecipe(val: any): val is ModifierRecipe {
     return false;
   if (val.max_level !== undefined && typeof val.max_level !== "number")
     return false;
-  if (val.ability_slots !== undefined && typeof val.ability_slots !== "number")
+  if (
+    val.slots?.abilities !== undefined &&
+    typeof val.slots?.abilities !== "number"
+  )
     return false;
-  if (val.upgrade_slots !== undefined && typeof val.upgrade_slots !== "number")
+  if (
+    val.slots?.upgrades !== undefined &&
+    typeof val.slots?.upgrades !== "number"
+  )
     return false;
   return true;
 }
@@ -230,7 +269,11 @@ export function isAnyModifierRecipe(val: any): val is AnyModifierRecipe {
   if (typeof val !== "object" || val === null) return false;
   if (!val.hasOwnProperty("type")) return false;
 
-  return isNormalModifierRecipe(val) || isOverslimeModifierRecipe(val);
+  return (
+    isNormalModifierRecipe(val) ||
+    isOverslimeModifierRecipe(val) ||
+    isRemoveModifierRecipe(val)
+  );
 }
 
 export function isNormalModifierRecipe(val: any): val is NormalModifierRecipe {
